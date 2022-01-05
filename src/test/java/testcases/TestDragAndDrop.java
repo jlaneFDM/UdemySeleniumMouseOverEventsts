@@ -18,15 +18,16 @@ public class TestDragAndDrop {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		
-		driver.get("https://jqueryui.com/droppable/");
+		driver.get("https://demo.seleniumeasy.com/drag-and-drop-demo.html");
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().window().fullscreen();
 					
-		WebElement draggable = driver.findElement(By.id("draggable"));
-		WebElement droppable = driver.findElement(By.id("droppable"));
+		WebElement draggable = driver.findElement(By.xpath("/html/body/div[2]/div/div[2]/div/div[2]/div[1]/span[1]"));
+		WebElement droppable = driver.findElement(By.xpath("//*[@id=\"mydropzone\"]"));
 				
 		Actions action = new Actions(driver);
 		
-		action.dragAndDrop(draggable, droppable);
+		action.dragAndDrop(draggable, droppable).perform();
 		
 
 	}
